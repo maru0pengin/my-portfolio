@@ -1,13 +1,13 @@
 <template>
   <div class="main_contents mx-auto">    
     <div v-if="!loading" >
-      <v-card  class="mx-auto">
+      <v-card elevation="2" outlined shaped max-width="700" class="mx-auto">
         <v-container>
           <v-row class="home-about__contents">
-            <v-col md="5" class="home-about__contents-img">
+            <v-col  class="home-about__contents-img">
               <img :src="profile.icon.url" alt="icon" class="img-fluid" style="border-radius: 30px">
             </v-col>
-            <v-col md="5" class="mx-auto" style="font-weight: bold; color:#333c5e">
+            <v-col class="mx-auto" style="color:#333c5e">
               <div style="font-size: 20px">
                 {{profile.name}}
               </div>
@@ -37,30 +37,45 @@
         </v-container>
       </v-card>
 
-      <div  style="font-size: 25px; padding-top:20px">
+      <div  style="font-size: 25px; padding-top:30px; padding-bottom:10px; color:#333c5e">
         <b>Products</b>
       </div>
 
-      <v-card >
+      <v-card outlined max-width="600" class="mx-auto">
         <v-container>
           <v-row>
-            <v-col v-for="article in articles" :key="article.id">
-              <v-img
-                class="white--text align-end"
-                height="200px"
-                :src="article.image.url"
-              />
-              <div style="font-size: 20px">
-                {{ article.title }}
-              </div>
-              <v-card-text class="text--primary">
-                <div class="summary">{{ article.summary }}</div>
+            <v-col v-for="article in articles" :key="article.id" style="font-size: 20px;text-align:left;color:#333c5e" >
+              <a :href=article.product_link.link target="_blank">
+                <v-img
+                  class="white--text align-end indigo lighten-5"
+                  :src="article.image.url"
+                  style="border: solid "
+                /> 
+              </a>
+              <v-card-text >
+                <div style="font-size:20px;padding-bottom:10px"><b>{{ article.title }}</b></div>
+                <div >{{ article.summary }}</div>
+                <div class="pt-5" style="font-size:18px"><b>Link</b></div>
+                <div v-for="link in article.links" :key="link.id">
+                  <a
+                    class="blue--text text-lighten-1"
+                    target="_blank"
+                    :href=link.link
+                  >
+                    {{link.name}}
+                  </a>
+                </div>
+                <v-container>
+                  <v-row>
+                    <div v-for="tag in article.tags" :key="tag.id" class="pt-3">
+                      <div class="text-body-2 grey lighten-2 px-2 py-1 mr-3 my-2" style="border-radius: 40px">
+                        <b>{{tag.name}}</b>
+                      </div>
+                    </div>
+                  </v-row>
+                </v-container>
+
               </v-card-text>
-
-              <v-card-actions>
-                <v-btn color="orange" text>More</v-btn>
-              </v-card-actions>
-
             </v-col>
           </v-row>
         </v-container>
@@ -98,7 +113,7 @@ export default {
       .catch((e) => console.log(e))
     console.log(response)
     this.profile = response.data
-    console.log(this.profile)
+    console.log(this.articles)
     this.loading = false
   },
 }
@@ -106,7 +121,7 @@ export default {
 <style scoped>
 
 .main_contents{
-  width:700px
+
 }
 
 .home-about__contents {
