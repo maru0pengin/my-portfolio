@@ -140,7 +140,7 @@
                             Svelte
                           </div>
                           <div class="text-body-2 grey lighten-2 px-2 py-1 mr-3 my-2 font-weight-bold rounded-pill">
-                            tailwind
+                            Tailwind CSS
                           </div>
                       </v-row>
                     </v-container>
