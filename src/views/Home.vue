@@ -119,7 +119,7 @@
                             Vue.js
                           </div>
                           <div class="text-body-2 grey lighten-2 px-2 py-1 mr-3 my-2 font-weight-bold rounded-pill">
-                            Ruby
+                            Ruby on Rails
                           </div>
                       </v-row>
                     </v-container>
@@ -138,6 +138,9 @@
                           </div>
                           <div class="text-body-2 grey lighten-2 px-2 py-1 mr-3 my-2 font-weight-bold rounded-pill">
                             Svelte
+                          </div>
+                          <div class="text-body-2 grey lighten-2 px-2 py-1 mr-3 my-2 font-weight-bold rounded-pill">
+                            tailwind
                           </div>
                       </v-row>
                     </v-container>
@@ -175,7 +178,8 @@
               <hr>
                 <v-row>
                   <v-col cols="5" class="subtitle-1 my-2">
-                    個人開発
+                    個人開発<br/>
+                    長期インターンシップ
                   </v-col> 
                   <v-col>
                     <v-container>
@@ -216,7 +220,7 @@
                     <v-container>
                       <v-row >
                         <div class="text-body-2 grey lighten-2 px-2 py-1 mr-3 my-2 font-weight-bold rounded-pill">
-                          応用情報技術者
+                          応用情報技術者試験
                         </div>
                       </v-row>
                     </v-container>
